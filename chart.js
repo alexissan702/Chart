@@ -1,6 +1,7 @@
 let txt = document.getElementById("text");
 let num = document.getElementById("number");
 let button = document.getElementById("button");
+var ctx = document.getElementById("chartholder").getContent("2d");
 
 let txtArray = [];
 let numArray = [];
@@ -10,10 +11,14 @@ function run() {
     txtArray.push(txt.value);
     numArray.push(num.value);
     txt.value = "";
-    num.value = "";
+    num.value = 0;
+    if(txtArray.length>5 && numArray.length>5){
+        document.getElementById("container").classList.add("show");
+        document.getElementById("container").classList.remove("hidden");
+    }
 }
 
-var ctx = document.getElementById("chartholder").getContent("2d");
+
 var chart = new Chart (ctx, {
     type: "bar",
     data: {
